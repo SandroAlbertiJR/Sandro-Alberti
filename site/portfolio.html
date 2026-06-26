@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title id="page-title">Backend Developer — Portfólio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!--
+╔══════════════════════════════════════════════════════════════╗
+║          🛠️  CONFIGURAÇÕES DO PORTFÓLIO — EDITE AQUI         ║
+╚══════════════════════════════════════════════════════════════╝
+  Altere os valores abaixo e salve. Tudo é atualizado automaticamente.
+-->
+<script src="scripts.js"></script>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-logo" id="nav-logo-el"><span>~/</span><span id="nav-logo-text"></span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#tecnologias">Tecnologias</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#api-demo">API Demo</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container hero-inner">
+      <div class="terminal-prompt fade-in">
+        <div class="dot"></div>
+        <span id="typed-text"></span><span class="cursor"></span>
+      </div>
+      <h1 class="hero-title fade-in">
+        <span id="hero-nome"></span><br /><span class="accent" id="hero-titulo"></span>
+      </h1>
+      <p class="hero-sub fade-in" id="hero-sub"></p>
+      <div class="hero-actions fade-in">
+        <a href="#projetos" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8 21 12 17 16 21"/></svg>
+          Ver Projetos
+        </a>
+        <a id="hero-github-btn" href="#" target="_blank" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre">
+    <div class="container">
+      <div class="about-grid">
+        <div class="fade-in">
+          <p class="section-label">// about</p>
+          <h2 class="section-title">Foco em backend,<br />lógica sem atalhos</h2>
+          <p class="section-sub" id="sobre-texto"></p>
+          <div class="about-highlights">
+            <div class="highlight-item"><div class="highlight-icon">🔌</div><div class="highlight-label">APIs REST</div><div class="highlight-desc">Endpoints bem estruturados, documentados e versionados</div></div>
+            <div class="highlight-item"><div class="highlight-icon">🔐</div><div class="highlight-label">Autenticação</div><div class="highlight-desc">JWT, MFA, sessões seguras e controle de acesso</div></div>
+            <div class="highlight-item"><div class="highlight-icon">🗄️</div><div class="highlight-label">Banco de Dados</div><div class="highlight-desc">MySQL, modelagem relacional e queries otimizadas</div></div>
+            <div class="highlight-item"><div class="highlight-icon">🔗</div><div class="highlight-label">Integrações</div><div class="highlight-desc">Webhooks, APIs de terceiros e automações</div></div>
+          </div>
+        </div>
+        <div class="about-visual fade-in">
+          <div class="code-card">
+            <div class="code-card-header">
+              <div class="win-dot red"></div><div class="win-dot amber"></div><div class="win-dot green"></div>
+              <span class="code-filename">AuthController.php</span>
+            </div>
+            <div class="code-body">
+<span class="c-purple">public function</span> <span class="c-blue">login</span>(<span class="c-orange">Request</span> <span class="c-yellow">$req</span>): <span class="c-orange">JsonResponse</span><br />{<br />&nbsp;&nbsp;<span class="c-yellow">$user</span> = <span class="c-orange">User</span>::<span class="c-blue">findByEmail</span>(<span class="c-yellow">$req</span>->email);<br /><br />&nbsp;&nbsp;<span class="c-purple">if</span> (!<span class="c-yellow">$user</span>-><span class="c-blue">verifyPassword</span>(<span class="c-yellow">$req</span>->password)) {<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-purple">return</span> <span class="c-blue">response</span>()-><span class="c-blue">json</span>([<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-green">'error'</span> => <span class="c-green">'Unauthorized'</span><br />&nbsp;&nbsp;&nbsp;&nbsp;], <span class="c-orange">401</span>);<br />&nbsp;&nbsp;}<br /><br />&nbsp;&nbsp;<span class="c-yellow">$token</span> = <span class="c-orange">JWT</span>::<span class="c-blue">encode</span>([<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-green">'sub'</span> => <span class="c-yellow">$user</span>->id,<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-green">'exp'</span> => <span class="c-blue">now</span>()-><span class="c-blue">addHours</span>(<span class="c-orange">8</span>)<br />&nbsp;&nbsp;]);<br /><br />&nbsp;&nbsp;<span class="c-purple">return</span> <span class="c-blue">response</span>()-><span class="c-blue">json</span>([<br />&nbsp;&nbsp;&nbsp;&nbsp;<span class="c-green">'token'</span> => <span class="c-yellow">$token</span><br />&nbsp;&nbsp;]);<br />}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECNOLOGIAS -->
+  <section id="tecnologias">
+    <div class="container">
+      <div class="fade-in" style="text-align:center">
+        <p class="section-label">// stack</p>
+        <h2 class="section-title">Tecnologias</h2>
+        <p class="section-sub" style="margin:0 auto">Ferramentas que uso no dia a dia para construir sistemas confiáveis e escaláveis.</p>
+      </div>
+      <div class="tech-grid" id="tech-grid"></div>
+    </div>
+  </section>
+
+  <!-- PROJETOS -->
+  <section id="projetos">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">// projects</p>
+        <h2 class="section-title">Projetos</h2>
+        <p class="section-sub">Sistemas reais construídos para resolver problemas reais.</p>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+    </div>
+  </section>
+
+  <!-- API DEMO -->
+  <section id="api-demo">
+    <div class="container">
+      <div class="fade-in">
+        <p class="section-label">// live demo</p>
+        <h2 class="section-title" id="demo-titulo"></h2>
+        <p class="section-sub" id="demo-subtitulo"></p>
+      </div>
+
+      <div class="demo-layout fade-in">
+
+        <!-- Painel esquerdo: inputs -->
+        <div class="demo-panel">
+          <div class="demo-panel-header">
+            <span class="demo-panel-title">REQUEST</span>
+            <span class="demo-panel-badge badge-live">LIVE</span>
+          </div>
+          <div class="demo-form">
+            <div class="demo-field">
+              <label class="demo-label">ENDPOINT</label>
+              <select class="demo-select" id="demo-endpoint-select"></select>
+            </div>
+            <div id="demo-params-area"></div>
+            <div class="demo-field">
+              <label class="demo-label">URL</label>
+              <div class="demo-url-row">
+                <span class="demo-url-text" id="demo-url-preview"><span class="url-path">—</span></span>
+              </div>
+            </div>
+            <button class="btn-run" id="btn-run">
+              <div class="spinner"></div>
+              <span class="run-label">▶ Executar Request</span>
+            </button>
+          </div>
+          <div class="demo-hint" id="demo-hint-mode"></div>
+        </div>
+
+        <!-- Painel direito: resposta -->
+        <div class="demo-panel">
+          <div class="demo-panel-header">
+            <span class="demo-panel-title">RESPONSE</span>
+            <span class="demo-panel-badge badge-get" id="demo-method-badge">GET</span>
+          </div>
+          <div class="response-area">
+            <div class="response-meta" id="demo-meta">
+              <span class="status-empty">Aguardando execução...</span>
+            </div>
+            <div class="response-body" id="demo-response">
+<span style="color:var(--text-muted)">// A resposta da API vai aparecer aqui.
+// Selecione um endpoint e clique em Executar.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato">
+    <div class="container">
+      <div class="contact-inner fade-in">
+        <p class="section-label">// contact</p>
+        <h2 class="section-title">Vamos conversar?</h2>
+        <p class="section-sub" style="margin:0 auto">Aberto a freelas, projetos e oportunidades. Se precisar de uma API bem feita, é aqui.</p>
+        <div class="contact-email" id="contact-email-el">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span id="contact-email-text"></span>
+        </div>
+        <div class="contact-actions">
+          <a id="contact-github-btn" href="#" target="_blank" class="btn btn-primary">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            Ver GitHub
+          </a>
+          <a id="contact-email-btn" href="#" class="btn btn-ghost">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Enviar Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>Feito com <span>♥</span> por <span id="footer-nome"></span> · 2025</p>
+    </div>
+  </footer>
+
+  <script>
+  /* ════════════════════════════════════════════════════════════
+     RENDER — Aplica CONFIG no DOM
+  ════════════════════════════════════════════════════════════ */
+  function applyConfig() {
+    const C = CONFIG;
+
+    // title
+    document.getElementById('page-title').textContent = `${C.nome} — Backend Developer`;
+
+    // nav
+    document.getElementById('nav-logo-text').textContent = C.navLogo;
+
+    // hero
+    document.getElementById('hero-nome').textContent   = C.nome;
+    document.getElementById('hero-titulo').textContent = C.titulo;
+    document.getElementById('hero-sub').textContent    = C.subtitulo;
+    document.getElementById('hero-github-btn').href    = C.github;
+
+    // sobre
+    document.getElementById('sobre-texto').textContent = C.sobreTexto;
+
+    // techs
+    const tg = document.getElementById('tech-grid');
+    tg.innerHTML = C.techs.map(t => `
+      <div class="tech-card fade-in">
+        <div class="tech-icon">${t.icon}</div>
+        <div class="tech-name">${t.name}</div>
+        <div class="tech-type">${t.type}</div>
+      </div>`).join('');
+
+    // projetos
+    const githubIcon = `<svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>`;
+    const extIcon  = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`;
+
+    const pg = document.getElementById('projects-grid');
+    pg.innerHTML = C.projetos.map(p => `
+      <div class="project-card fade-in">
+        <div class="project-top">
+          <div class="project-icon">${p.icon}</div>
+          <div class="project-links">
+            <a href="${p.github}" class="icon-btn" title="Ver código">${githubIcon}</a>
+            <a href="${p.demo}"   class="icon-btn" title="Ver demo">${extIcon}</a>
+          </div>
+        </div>
+        <h3 class="project-name">${p.nome}</h3>
+        <p class="project-desc">${p.desc}</p>
+        <div class="tag-list">${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
+      </div>`).join('');
+
+    // api demo labels
+    document.getElementById('demo-titulo').textContent    = C.apiDemo.titulo;
+    document.getElementById('demo-subtitulo').textContent = C.apiDemo.subtitulo;
+
+    // contato
+    document.getElementById('contact-email-text').textContent = C.email;
+    document.getElementById('contact-email-btn').href  = `mailto:${C.email}`;
+    document.getElementById('contact-github-btn').href = C.github;
+
+    // footer
+    document.getElementById('footer-nome').textContent = C.nome;
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     API DEMO — lógica do playground
+  ════════════════════════════════════════════════════════════ */
+  function initDemo() {
+    const D = CONFIG.apiDemo;
+    const select   = document.getElementById('demo-endpoint-select');
+    const paramsEl = document.getElementById('demo-params-area');
+    const urlPrev  = document.getElementById('demo-url-preview');
+    const btnRun   = document.getElementById('btn-run');
+    const metaEl   = document.getElementById('demo-meta');
+    const respEl   = document.getElementById('demo-response');
+    const badgeEl  = document.getElementById('demo-method-badge');
+    const hintEl   = document.getElementById('demo-hint-mode');
+
+    // hint mode
+    hintEl.innerHTML = D.modo === 'mock'
+      ? `💡 Modo <strong>mock</strong> — respostas simuladas localmente. Troque para "public" em CONFIG.apiDemo.modo para chamadas reais.`
+      : `🌐 Modo <strong>público</strong> — chamadas reais via fetch. Requer CORS aberto na API de destino.`;
+
+    // populate select
+    D.endpoints.forEach((ep, i) => {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = ep.label;
+      select.appendChild(o);
+    });
+
+    function getParams() {
+      const inputs = paramsEl.querySelectorAll('[data-param]');
+      const result = {};
+      inputs.forEach(el => result[el.dataset.param] = el.value);
+      return result;
+    }
+
+    function buildUrl(ep, params) {
+      let url = ep.url;
+      for (const [k, v] of Object.entries(params)) {
+        url = url.replace(`{${k}}`, encodeURIComponent(v || ''));
+      }
+      return url;
+    }
+
+    function renderUrl() {
+      const idx = parseInt(select.value);
+      const ep  = D.endpoints[idx];
+      const url = buildUrl(ep, getParams());
+      badgeEl.textContent = ep.method;
+      badgeEl.className   = 'demo-panel-badge ' + (ep.method === 'GET' ? 'badge-get' : 'badge-post');
+      urlPrev.innerHTML   = `<span class="url-path">${url}</span>`;
+    }
+
+    function renderParams() {
+      const idx = parseInt(select.value);
+      const ep  = D.endpoints[idx];
+      paramsEl.innerHTML = ep.params.map(p => `
+        <div class="demo-field">
+          <label class="demo-label">${p.label.toUpperCase()}</label>
+          <input
+            class="demo-input"
+            type="${p.type === 'number' ? 'number' : 'text'}"
+            placeholder="${p.placeholder}"
+            data-param="${p.name}"
+            value="${p.placeholder}"
+          />
+        </div>`).join('');
+      paramsEl.querySelectorAll('[data-param]').forEach(el => {
+        el.addEventListener('input', renderUrl);
+      });
+      renderUrl();
+    }
+
+    select.addEventListener('change', renderParams);
+    renderParams();
+
+    // JSON syntax highlighter
+    function syntaxHL(json) {
+      return json
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+        .replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, (m) => {
+          let cls = 'json-num';
+          if (/^"/.test(m)) cls = /:$/.test(m) ? 'json-key' : 'json-str';
+          else if (/true|false/.test(m)) cls = 'json-bool';
+          else if (/null/.test(m)) cls = 'json-null';
+          return `<span class="${cls}">${m}</span>`;
+        });
+    }
+
+    btnRun.addEventListener('click', async () => {
+      const idx    = parseInt(select.value);
+      const ep     = D.endpoints[idx];
+      const params = getParams();
+      const url    = buildUrl(ep, params);
+
+      btnRun.disabled = true;
+      btnRun.classList.add('loading');
+      metaEl.innerHTML = `<span class="status-empty">Conectando...</span>`;
+      respEl.innerHTML = `<span style="color:var(--text-muted)">// Aguardando resposta...</span>`;
+
+      const t0 = performance.now();
+
+      try {
+        let data, status;
+
+        if (D.modo === 'mock') {
+          await new Promise(r => setTimeout(r, 420 + Math.random() * 280));
+          data   = ep.mockFn(params);
+          status = 200;
+        } else {
+          const res = await fetch(url, { method: ep.method });
+          status = res.status;
+          data   = await res.json();
+        }
+
+        const ms = Math.round(performance.now() - t0);
+        const ok = status >= 200 && status < 300;
+
+        metaEl.innerHTML = `
+          <span class="status-pill ${ok ? 'status-ok' : 'status-err'}">${status} ${ok ? 'OK' : 'ERROR'}</span>
+          <span>${url.length > 50 ? url.slice(0,50)+'…' : url}</span>
+          <span class="response-time">${ms}ms</span>`;
+
+        respEl.innerHTML = syntaxHL(JSON.stringify(data, null, 2));
+
+      } catch (err) {
+        const ms = Math.round(performance.now() - t0);
+        metaEl.innerHTML = `<span class="status-pill status-err">ERRO</span><span class="response-time">${ms}ms</span>`;
+        respEl.innerHTML = `<span style="color:#FCA5A5">// Erro ao executar o request:\n// ${err.message}\n\n// Dica: verifique se a API permite CORS,\n// ou mude CONFIG.apiDemo.modo para "mock".</span>`;
+      }
+
+      btnRun.disabled = false;
+      btnRun.classList.remove('loading');
+    });
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     TYPED TERMINAL
+  ════════════════════════════════════════════════════════════ */
+  function initTyped() {
+    const phrases = CONFIG.terminalPhrases;
+    let pi = 0, ci = 0, del = false;
+    const el = document.getElementById('typed-text');
+    function type() {
+      const cur = phrases[pi];
+      if (!del) {
+        el.textContent = cur.slice(0, ++ci);
+        if (ci === cur.length) { del = true; return setTimeout(type, 2200); }
+      } else {
+        el.textContent = cur.slice(0, --ci);
+        if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
+      }
+      setTimeout(type, del ? 38 : 68);
+    }
+    type();
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     SCROLL ANIMATIONS
+  ════════════════════════════════════════════════════════════ */
+  function initObserver() {
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.fade-in').forEach((el, i) => {
+      el.style.transitionDelay = (i % 4) * 80 + 'ms';
+      obs.observe(el);
+    });
+  }
+
+  /* ════════════════════════════════════════════════════════════
+     NAV
+  ════════════════════════════════════════════════════════════ */
+  function initNav() {
+    const toggle   = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navbar   = document.getElementById('navbar');
+    toggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(l => l.addEventListener('click', () => navLinks.classList.remove('open')));
+    window.addEventListener('scroll', () => {
+      navbar.style.padding = window.scrollY > 40 ? '12px 40px' : '18px 40px';
+    }, { passive: true });
+  }
+
+  /* ── Boot ── */
+  applyConfig();
+  initTyped();
+  initDemo();
+  initNav();
+  // re-observe after dynamic content rendered
+  requestAnimationFrame(() => initObserver());
+  </script>
+
+</body>
+</html>
